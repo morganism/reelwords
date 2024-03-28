@@ -1,4 +1,9 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
-gem 'rspec', '~> 3.0'
-gem 'rake'
+# gem "rails"
+gem 'colorize'
+gem 'optparse'
+gem 'daemons'
+
