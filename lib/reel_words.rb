@@ -38,7 +38,7 @@ class ReelWords
   end
 
   def randomise_reels
-    @reels ||= load_reels
+    @reels ||= load_reels # avoid ordered method calls
     @reels.each { |reel| reel.rotate!(rand(reel.size)) }
   end
 
@@ -111,4 +111,4 @@ class ReelWords
   end
 end
 
-__FILE__ == $0 && ReelWords.play #no gameplay if i'm required ala rspec
+__FILE__ == $0 && ReelWords.play #no gameplay if i'm required
