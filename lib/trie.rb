@@ -1,17 +1,13 @@
-#!/usr/bin/env ruby
-
-
 class TrieNode
-  attr_accessor :children, :is_end
+  attr_accessor :children, :end_of_word
 
   def initialize
     @children = {}
-    @is_end = false
+    @end_of_word = false
   end
 end
 
 class Trie
-
   def initialize
     @root = TrieNode.new
   end
@@ -19,61 +15,25 @@ class Trie
   def insert(word)
     node = @root
     word.each_char do |char|
-      node.children[char] ||= TrieNode.new
+      node.children[char] = TrieNode.new unless node.children[char]
       node = node.children[char]
     end
-    node.is_end = true
+    node.end_of_word = true
+    # Append a TrieNode with the character '=' to signify the end of a word as 
+    # in Scopely Challenge doc 
+    #
+    # the following node is not necessary
+    node.children['='] = TrieNode.new unless node.children['=']
   end
 
   def search(word)
-    node = search_node(word)
-    node && node.is_end
-  end
-
-  def delete(word)
-    delete_recursive(@root, word, 0)
-  end
-
-  private
-
-  def search_node(word)
     node = @root
     word.each_char do |char|
-      return nil unless node.children[char]
+      return false unless node.children[char]
       node = node.children[char]
     end
-    node
-  end
-
-  def delete_recursive(node, word, index)
-    return if node.nil?
-
-    if index == word.length
-      node.is_end = false
-      return node.children.empty?
-    end
-
-    char = word[index]
-    should_delete = delete_recursive(node.children[char], word, index + 1)
-
-    if should_delete
-      node.children.delete(char)
-      node.children.empty?
-    else
-      false
-    end
+    # Ensure the '=' node exists to confirm it's the end of a word
+    node.end_of_word && node.children.include?('=')
   end
 end
 
-# if running as a script
-if __FILE__ == $0
-  @trie = Trie.new
-
-  @trie.insert("apple")
-  @trie.insert("apply")
-
-  puts "apple is defined " if  @trie.search("apple")
-  puts "apply is defined " if  @trie.search("apply")
-
-
-end
