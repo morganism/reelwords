@@ -1,18 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    colorize (1.1.0)
-    daemons (1.4.1)
-    optparse (0.4.0)
 
 PLATFORMS
   x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
-  colorize
-  daemons
-  optparse
 
 BUNDLED WITH
    2.3.19
