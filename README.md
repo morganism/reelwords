@@ -10,12 +10,12 @@ A word forming game
 
 Source code available here: [Release 0.0.1](https://github.com/morganism/reelwords/releases/tag/Game)
 
-# Cloning the source code from GitHub, install dependencies (which are few), run the RSpec unit tests and playing the game ... 
+## Cloning the source code from GitHub, install dependencies (which are few), run the RSpec unit tests and playing the game ... 
 
-`git clone https://git.morganism.dev/reelwords.git`
+- `git clone https://git.morganism.dev/reelwords.git`
 
-`bundle install`
+- `bundle install`
 
-`rake spec`
+- `rake spec`
 
 `./reelwords.play`
