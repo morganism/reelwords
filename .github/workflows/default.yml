@@ -30,6 +30,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo $PATH
       - run: export PATH=$PATH:/home/runner/.local/share/gem/ruby/3.0.0/bin:$HOME/.gem/ruby/3.0.0/bin
+      - run: echo $PATH
       - run: gem install bundler --user-install
       - run: bundle install
       - run: rspec -fd
