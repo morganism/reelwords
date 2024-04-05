@@ -95,4 +95,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.tty = true
+  config.formatter = :documentation
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
