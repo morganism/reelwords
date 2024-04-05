@@ -1,4 +1,4 @@
-# reelwords
+# ReelWords
 
 A word forming game 
 
@@ -6,9 +6,9 @@ A word forming game
 [![Rubocop](https://github.com/morganism/reelwords/workflows/Rubocop/badge.svg)](https://github.com/morganism/reelwords/actions?query=workflow%3ARubocop)
 [![CodeQL](https://github.com/morganism/reelwords/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/morganism/reelwords/actions/workflows/codeql-analysis.yml)
 
-[Unit test details](https://github.com/morganism/reelwords/actions/workflows/ruby.yml) that show RSpec results
+## [Unit test details](https://github.com/morganism/reelwords/actions/workflows/ruby.yml) that show RSpec unit test results
 
-Source code available here: [Release 0.0.1](https://github.com/morganism/reelwords/releases/tag/Game)
+### Source code available here: [Release 0.0.1](https://github.com/morganism/reelwords/releases/tag/Game) .. or 
 
 ## Cloning the source code from GitHub, install dependencies (which are few), run the RSpec unit tests and playing the game ... 
 
@@ -18,4 +18,4 @@ Source code available here: [Release 0.0.1](https://github.com/morganism/reelwor
 
 - `rake spec`
 
-`./reelwords.play`
+- `./reelwords.play`
