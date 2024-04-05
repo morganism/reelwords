@@ -33,7 +33,7 @@ jobs:
       - run: echo "/home/runner/.local/share/gem/ruby/3.0.0/bin:$GITHUB_WORKSPACE/.local/share/gem/ruby/3.0.0/bin:$GITHUB_WORKSPACE/.gem/ruby/3.0.0/bin" >> $GITHUB_PATH
       - run: echo $PATH
       - run: gem install bundler --user-install
-      - run: bundle install
+      - run: bundle install --path ~/.gem
       - run: rspec -fd
       - name: List files in the repository
         run: |
