@@ -1,10 +1,16 @@
 #!/usr/bin/env ruby
 
 require_relative 'trie.rb'
+require_relative 'errors/handle.rb'
 
 DATA_DIR = File.expand_path('../data', __dir__)
 
 class ReelWords
+  prepend Handle
+
+  Handle.errors_from :load_words
+  #Handle.errors_from :play
+
   attr_accessor :trie, :reels, :scores
 
   def initialize
@@ -57,17 +63,21 @@ class ReelWords
         if input == '!'    # exit game
           break
         elsif input == '?' # sometimes you cannot form a word
+          raise Handle::Error::PlayerError.new("Player enters non a-z character, #{input}, to randomise reels.")
           randomise_reels
           next
         end
       end
       
-      if valid_input?(input) && @trie.search(input)
+      if valid_input?(input)
+        unless @trie.search(input)
+          raise Handle::Error::PlayerError.new("Word #{input} not found in dictionary.")
+        end
         update_reels(input)
         puts "Points: #{calculate_score(input)}"
         puts "Total: #{@total_score}"
       else
-        puts "Word #{input} not found in dictionary."
+        raise Handle::Error::PlayerError.new("Invalid player input: [#{input}].")
       end
     end
     outro
@@ -90,7 +100,7 @@ class ReelWords
     puts @reels.map { |reel| reel.first }.join(' ')
   end
 
-  def valid_input?(input)
+  def valid_input?(input) # check that all player chars are 'visible' on reels
     temp_reels = @reels.map(&:dup)
     input.each_char.all? do |char|
       reel = temp_reels.find { |r| r.first == char }
