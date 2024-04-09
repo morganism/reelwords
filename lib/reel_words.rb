@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'json'
 require_relative 'trie.rb'
 
 DATA_DIR = File.expand_path('../data', __dir__)
@@ -7,14 +8,23 @@ DATA_DIR = File.expand_path('../data', __dir__)
 class ReelWords
   attr_accessor :trie, :reels, :scores
 
-  def initialize
+  def initialize(options = {})
     @trie = Trie.new
     @total_score = 0
     @rounds = 0
+    @format = options[:format] if options[:format]
     load_words
     load_scores
     load_reels
     randomise_reels
+  end
+
+  def scores
+    @scores
+  end
+
+  def letters
+    @reels.map { |reel| reel.first }
   end
 
   def load_words
@@ -51,7 +61,7 @@ class ReelWords
     loop do
       @rounds += 1
       display_letters
-      input = gets.strip.downcase
+      input = player_input
 
       if input.length == 1
         if input == '!'    # exit game
@@ -73,7 +83,6 @@ class ReelWords
     outro
   end
 
-  private
 
   def intro
     puts "How about a nice game of ReelWords ?"
@@ -86,8 +95,16 @@ class ReelWords
     puts "Bye! Thank you for playing ReelWords. You accumulated #{@total_score} points in #{@rounds} rounds played."
   end
 
+  def json?
+    @format.eql? :json
+  end
+
+  def player_input
+    gets.strip.downcase
+  end
+
   def display_letters
-    puts @reels.map { |reel| reel.first }.join(' ')
+    puts letters.join(' ')
   end
 
   def valid_input?(input)
@@ -105,6 +122,7 @@ class ReelWords
       reel.rotate!
     end
   end
+
 
   def calculate_score(word)
     word.chars.sum { |char| @scores[char] }.tap { |o| @total_score += o }

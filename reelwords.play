@@ -2,4 +2,5 @@
 
 require_relative 'lib/reel_words'
 
-ReelWords.play
+rw = ReelWords.new(format: :json)
+rw.play

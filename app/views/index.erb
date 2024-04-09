@@ -1,7 +1,7 @@
 <!-- views/index.erb -->
 
 <div class="container">
-  <h2>Default</h2>
+  <h2>ReelWords</h2>
   <ul class="nav nav-pills" role="tablist">
     <li class="nav-item active">
       <a class="nav-link" href="/home">Home</a>
@@ -35,4 +35,13 @@
       </ul>
     </li>
   </ul>
+  <div id="form">
+      <h1>ReelWords Game</h1>
+      <p><%= @letters.map { |l| "<td class='tileStore'><span class='tile'>#{l}<span class='score'>#{@scores[l]}</span></span></td>"  }.join('') %></p>
+  <form action="/" method="post">
+    <label for="letters">Enter your word:</label>
+    <input type="text" id="letters" name="letters">
+    <input type="submit" value="Submit">
+  </form>
+  </div>
 </div>
