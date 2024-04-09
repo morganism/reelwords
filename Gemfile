@@ -10,3 +10,5 @@ gem 'rspec'
 gem "sinatra", "~> 4.0"
 
 gem "rack", "~> 3.0"
+
+gem "rackup", "~> 2.1"
