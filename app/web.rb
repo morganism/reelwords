@@ -8,9 +8,13 @@ class ReelWordsApp < Sinatra::Base
   # Initialize the game outside of request handlers to persist its state
   @@game = ReelWords.new
 
+
   get '/' do
     @letters = @@game.letters  # Set instance variable for use in ERB template
     @scores = @@game.scores
+    @word = params[:w]
+    @score = params[:s]
+    @total_score = @@game.total_score
     erb :index  # Render views/index.erb
   end
 
@@ -18,8 +22,17 @@ class ReelWordsApp < Sinatra::Base
     input = params[:letters]
     if @@game.valid_input?(input) && @@game.trie.search(input)
       @@game.update_reels(input)
+      word = input
       score = @@game.calculate_score(input)
+      total_score = @@game.total_score 
       "Word accepted: #{input}, Score: #{score}<br><a href='/'>Try another word</a>"
+
+      "<script>
+      setTimeout(callBack, 2000);
+      function callBack() {
+        location.href = '?s=#{score}&ts=#{total_score}&w=#{word}';
+        }
+    </script>"
     else
       "Word #{input} not found in dictionary or invalid input.<br><a href='/'>Try again</a>"
     end

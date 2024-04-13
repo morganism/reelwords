@@ -11,96 +11,100 @@
   <title>Your App Title</title>
   <link rel="manifest" href="/manifest.json">
   <style>
+    #tileStorage
+    {
+      margin-top: 1em;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+    }
 
-#tileStorage
-{
-	margin-top: 1em;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: center;
-}
+    #tileStorage a.on:hover
+    {
+      border-top-color: #66CC66;
+      border-right-color: #006600;
+      border-bottom-color: #006600;
+      border-left-color: #66CC66;
+      background-color: #009600;
+      color: #FFFFFF;
+    }
 
-#tileStorage a.on:hover
-{
-	border-top-color: #66CC66;
-	border-right-color: #006600;
-	border-bottom-color: #006600;
-	border-left-color: #66CC66;
-	background-color: #009900;
-	color: #FFFFFF;
-}
-
-#tileStorage input
-{
-	width: 10em;
-}
+    #tileStorage input
+    {
+      width: 10em;
+    }
 
 
-#tileStorage td.tileStore
-{
-	margin: 0;
-	border-top: 0.08em solid #999999;
-	border-right: 0.08em solid #EEEEEE;
-	border-bottom: 0.08em solid #EEEEEE;
-	border-left: 0.08em solid #999999;
-	vertical-align: middle;
-}
+    #tileStorage td.tileStore
+    {
+      margin: 0;
+      border-top: 0.08em solid #999999;
+      border-right: 0.08em solid #EEEEEE;
+      border-bottom: 0.08em solid #EEEEEE;
+      border-left: 0.08em solid #999999;
+      vertical-align: middle;
+    }
 
-#tileStorage .empty
-{
-	border: 0.15em solid #CCCCCC;
-	background-color: #CCCCCC;
-}
+    #tileStorage .empty
+    {
+      border: 0.15em solid #CCCCCC;
+      background-color: #CCCCCC;
+    }
 
-#tileStorage td a.empty:hover
-{
-	border-color: #FFFFFF;
-	background-color: #FFFFFF;
-}
+    #tileStorage td a.empty:hover
+    {
+      border-color: #FFFFFF;
+      background-color: #FFFFFF;
+    }
 
-#tileStorage .tile:hover
-{
-	border-top-color: #FFCC66;
-	border-right-color: #CC6600;
-	border-bottom-color: #CC6600;
-	border-left-color: #FFCC66;
-	background-color: #FF9900;
-	color: #FFFFFF;
-}
+    #tileStorage .tile:hover
+    {
+      border-top-color: #FFCC66;
+      border-right-color: #CC6600;
+      border-bottom-color: #CC6600;
+      border-left-color: #FFCC66;
+      background-color: #FF9900;
+      color: #FFFFFF;
+    }
 
-#tileStorage .hidden
-{
-	visibility: hidden;
-}
+    #tileStorage .hidden
+    {
+      visibility: hidden;
+    }
 
-.tile
-{
-	display: block;
-	float: left;
-	width: 1.5em;
-	height: 1.5em;
-	margin: 0;
-	border: 0.15em solid #999966;
-	border-top: 0.15em solid #FFFFCC;
-	border-left: 0.15em solid #FFFFCC;
-	background-color: #CCCC99;
-	color: #000000;
-	text-align: center;
-	line-height: 1.25em;
-	font-weight: bold;
-	text-decoration: none;
-}
+    .tile
+    {
+      display: block;
+      float: left;
+      width: 8em;
+      height: 8em;
+      margin: 0;
+      border: 0.15em solid #999966;
+      border-top: 0.15em solid #FFFFCC;
+      border-left: 0.15em solid #FFFFCC;
+      background-color: #CCCC99;
+      color: #000000;
+      text-align: center;
+      line-height: 6em;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-.tile .score
-{
-	font-size: 0.65em;
-	vertical-align: sub;
-}
+    .letter
+    {
+      font-size: 80px;
+    }
+    .tile .score
+    {
+      font-size: 0.8em;
+      vertical-align: sub;
+      color: #880000
+    }
 
-.tile .blank
-{
-	color: #999999;
-}
+    .tile .blank
+    {
+      color: #999999;
+    }
   </style>
 </head>
 <body>

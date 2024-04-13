@@ -123,6 +123,9 @@ class ReelWords
     end
   end
 
+  def total_score
+    @total_score
+  end
 
   def calculate_score(word)
     word.chars.sum { |char| @scores[char] }.tap { |o| @total_score += o }

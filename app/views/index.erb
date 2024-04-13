@@ -1,47 +1,47 @@
 <!-- views/index.erb -->
 
 <div class="container">
-  <h2>ReelWords</h2>
   <ul class="nav nav-pills" role="tablist">
     <li class="nav-item active">
-      <a class="nav-link" href="/home">Home</a>
+      <a class="nav-link" href="/">ReelWords</a>
     </li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Sign-In <span class="caret"></span></a>
+      Go <span class="caret"></span></a>
       <ul class="dropdown-menu" role="menu">
-        <li><a class="dropdown-item" href="/signup">Sign-Up</a></li>
-        <li><a class="dropdown-item" href="/signin">Sign-In</a></li>
-        <li><a class="dropdown-item" href="/signout">Sign-Out</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Help <span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu">
-        <li><a class="dropdown-item" href="/help">Help</a></li>
-        <li><a class="dropdown-item" href="/support">Support</a></li>
-        <li><a class="dropdown-item" href="/contact">Contact</a></li>
-        <li><a class="dropdown-item" href="/about">About</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Admin <span class="caret"></span></a>
-      <ul class="dropdown-menu" role="menu">
-        <li><a class="dropdown-item" href="/admin">Admin</a></li>
-        <li><a class="dropdown-item" href="/debug">Debug</a></li>
-        <li><a class="dropdown-item" href="/settings">Settings</a></li>
+        <li><a class="dropdown-item" href="/">Play ReelWords</a></li>
+        <li><a class="dropdown-item" target="_blank"  href="https://git.morganism.dev/reelwords">Source Code (GitHub)</a></li>
+        <li><a class="dropdown-item" target="_blank" href="https://github.com/morganism/reelwords/actions/workflows/ruby.yml">View Test Results</a></li>
+        <li><a class="dropdown-item" target="_blank" href="https://git.morganism.dev/reelwords/issues">Issues (Bugs)</a></li>
+        <li><a class="dropdown-item" target="_blank" href="https://www.linkedin.com/in/morganismdev">morganism linkedin(author)</a></li>
       </ul>
     </li>
   </ul>
-  <div id="form">
-      <h1>ReelWords Game</h1>
-      <p><%= @letters.map { |l| "<td class='tileStore'><span class='tile'>#{l}<span class='score'>#{@scores[l]}</span></span></td>"  }.join('') %></p>
+  </tr>
+  <tr>
+  <table>
+    <tr>
+
+
+  <div id="intro" style="display: block">
+      <h1>ReelWords</h1>
+      <p><td class=\"tileStore\"><%= @letters.map { |l| "<span class=\"tile\"><span class=\"letter\">#{l}</span><span class=\"score\">#{@scores[l]}</span></span>"  }.join("") %></td></p>
+  </div>
+
+
+    </tr>
+
+    <tr><td>
+  <div id="form" style="display: visible;">
   <form action="/" method="post">
+    <p>Word: <%= @word %></p>
+    <p>Score: <%= @score %></p>
+    <p>Total score: <%= @total_score %></p>
     <label for="letters">Enter your word:</label>
     <input type="text" id="letters" name="letters">
     <input type="submit" value="Submit">
   </form>
   </div>
+  </td></tr>
+  </table>
 </div>
