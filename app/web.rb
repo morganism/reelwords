@@ -38,6 +38,11 @@ class ReelWordsApp < Sinatra::Base
     end
   end
 
+  get '/health' do
+    status 200
+    body 'OK'
+  end
+
   # Start the server if this file is run directly
   run! if app_file == $0
 end
