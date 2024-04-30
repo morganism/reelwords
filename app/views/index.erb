@@ -25,7 +25,6 @@
 
   <div id="intro" style="display: block">
       <h1>ReelWords</h1>
-      <p>Note: You cannot press the letters at this point, you must enter the letters in the input box :-(</p>
       <p><td class=\"tileStore\"><%= @letters.map { |l| "<span class=\"tile\"><span class=\"letter\">#{l}</span><span class=\"score\">#{@scores[l]}</span></span>"  }.join("") %></td></p>
   </div>
 

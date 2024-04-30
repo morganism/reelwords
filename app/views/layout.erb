@@ -107,6 +107,19 @@
     }
   </style>
   <script>
+    window.onload = function() {
+        // Attach click event listeners to all 'tile' spans
+        var tiles = document.querySelectorAll('.tile');
+        tiles.forEach(function(tile) {
+            tile.onclick = function(event) {
+                var letter = tile.querySelector('.letter').textContent; // Get the letter
+                var input = document.getElementById('letters');
+                input.value += letter; // Append the letter to the input field
+                tile.style.pointerEvents = 'none'; // Disable further clicks on this tile
+                tile.style.opacity = '0.5'; // Optional: Change the style to indicate it's disabled
+            };
+        });
+    };
     // Function to convert input to lowercase
     function enforceLowercaseInput(event) {
         const inputElement = event.target;
