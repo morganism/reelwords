@@ -108,6 +108,13 @@
   </style>
   <script>
     window.onload = function() {
+        var input = document.getElementById('letters');
+        input.addEventListener('focus', function(event) {
+            // Prevent scrolling on input focus
+            window.scrollTo(0, 0);
+        }, false);
+    };
+    window.onload = function() {
         // Attach click event listeners to all 'tile' spans
         var tiles = document.querySelectorAll('.tile');
         tiles.forEach(function(tile) {
