@@ -45,6 +45,7 @@ class ReelWordsApp < Sinatra::Base
 
   get '/running' do
     status 200
+    headers('Content-Type' => "image/png")
     body '<img src="green-circle.png" height="15" width="15"/>'
   end
 

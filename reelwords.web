@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Path to the PID file
+PID_FILE="${HOME}/.reelwords.web.pid"
+
+# Command to start your process
+start_process() {
+    echo "Starting process..."
+    # Replace this with the actual command to start your process
+    ruby app/web.rb
+    echo $! > "$PID_FILE"
+}
+
+# Check if the process is running, restart if not
+check_process() {
+    if [ -f "$PID_FILE" ]; then
+        PID=$(cat "$PID_FILE")
+        if ! ps -p $PID > /dev/null 2>&1; then
+            echo "Process with PID $PID is not running. Starting process..."
+            start_process
+        else
+            echo "Process with PID $PID is running."
+        fi
+    else
+        echo "PID file not found. Starting process..."
+        start_process
+    fi
+}
+
+# Main loop to periodically check the process
+while true
+do
+    check_process
+    # Sleep for a specified time interval (e.g., 10 seconds)
+    sleep 10
+done
+
