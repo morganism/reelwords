@@ -106,6 +106,13 @@
       color: #999999;
     }
   </style>
+  <script>
+    // Function to convert input to lowercase
+    function enforceLowercaseInput(event) {
+        const inputElement = event.target;
+        inputElement.value = inputElement.value.toLowerCase();
+    }
+  </script>
 </head>
 <body>
   <%= yield %>

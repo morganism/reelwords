@@ -39,7 +39,7 @@
     <p>Score: <%= @score %></p>
     <p>Total score: <%= @total_score %></p>
     <label for="letters">Enter your word:</label>
-    <input type="text" id="letters" name="letters">
+    <input type="text" id="letters" name="letters" oninput="enforceLowercaseInput(event)">
     <input type="submit" value="Submit">
   </form>
   </div>
