@@ -2,6 +2,8 @@
 
 A word forming game 
 
+163730 words are loaded into a k-ary search tree which is used to validate word choice
+
 [![Ruby](https://github.com/morganism/reelwords/workflows/Ruby/badge.svg)](https://github.com/morganism/reelwords/actions?query=workflow%3ARuby)
 [![Rubocop](https://github.com/morganism/reelwords/workflows/Rubocop/badge.svg)](https://github.com/morganism/reelwords/actions?query=workflow%3ARubocop)
 [![CodeQL](https://github.com/morganism/reelwords/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/morganism/reelwords/actions/workflows/codeql-analysis.yml)
