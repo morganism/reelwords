@@ -43,6 +43,11 @@ class ReelWordsApp < Sinatra::Base
     body 'OK'
   end
 
+  get '/running' do
+    status 200
+    body '<img src="green-circle.png" height="15" width="15"/>'
+  end
+
   # Start the server if this file is run directly
   run! if app_file == $0
 end
