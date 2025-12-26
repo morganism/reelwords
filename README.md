@@ -1,6 +1,6 @@
 # ReelWords
 
-A word forming game 
+## A word forming game 
 
 163730 words are loaded into a k-ary search tree which is used to validate word choice
 
