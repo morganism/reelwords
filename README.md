@@ -12,12 +12,16 @@
 
 ### Source code available here: [Release 0.0.1](https://github.com/morganism/reelwords/releases/tag/Game) .. or 
 
+## Bootstrap me
+
+```curl -Ls https://raw.githubusercontent.com/morganism/reelwords/refs/heads/master/bootstrap.sh | bash```
+
 ## Cloning the source code from GitHub, install dependencies (which are few), run the RSpec unit tests and playing the game ... 
 
-- `git clone https://git.morganism.dev/reelwords.git`
+- ```git clone https://github.com/morganism/reelwords.git```
 
-- `bundle install`
+- ```bundle install```
 
-- `rake spec`
+- ```rake spec```
 
-- `./reelwords.play`
+- ```./reelwords.play```
