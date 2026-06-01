@@ -20,6 +20,8 @@
 
 - ```git clone https://github.com/morganism/reelwords.git```
 
+- ```cd reelwords``` 
+
 - ```bundle install```
 
 - ```rake spec```
