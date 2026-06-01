@@ -51,7 +51,9 @@ class ReelWords
     loop do
       @rounds += 1
       display_letters
-      input = gets.strip.downcase
+
+      input = gets&.strip&.downcase
+      break if input.nil?
 
       if input.length == 1
         if input == '!'    # exit game
